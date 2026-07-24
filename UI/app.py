@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 import pandas as pd
 import joblib
@@ -8,8 +9,6 @@ from plotly.subplots import make_subplots
 st.set_page_config(page_title="Heart Disease Predictor", layout="wide", page_icon="❤️")
 
 # ------------------- Load Model -------------------
-import os
-
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MODEL_PATH = os.path.join(BASE_DIR, "Models", "final_model.pkl")
 DATA_PATH = os.path.join(BASE_DIR, "Data", "heart_disease_clean.csv")
@@ -40,26 +39,18 @@ col_inputs, col_results = st.columns([3,4])
 # ----- Input Form -----
 with col_inputs:
     st.subheader("Enter Patient Data")
+    st.caption("Only the fields below are used by the model to make its prediction.")
 
-    # Group 1: Personal Info
-    with st.expander("👤 Personal Info", expanded=True):
-        age = st.slider("Age", 20, 100, 40)
-        sex = st.selectbox("Gender", ["Female", "Male"])
+    # Group 1: Chest Pain & Vessels
+    with st.expander("💓 Chest Pain & Vessels", expanded=True):
+        cp_4 = st.selectbox("Chest Pain Type (cp_4)", ["No", "Yes"])
+        ca_1 = st.selectbox("Major Vessels Colored (ca_1.0)", ["No", "Yes"])
 
-    # Group 2: Chest & Blood Info
-    with st.expander("💓 Chest & Blood Info", expanded=True):
-        cp_4 = st.selectbox("Chest Pain Type (cp_4 only)", ["No", "Yes"])
-        trestbps = st.number_input("Resting Blood Pressure", 80, 200, 120)
-        chol = st.slider("Cholesterol", 100, 600, 200)
-        fbs = st.selectbox("Fasting Blood Sugar > 120", ["No", "Yes"])
-        thalach = st.number_input("Max Heart Rate", 60, 250, 150)
-
-    # Group 3: ECG & Stress Info
+    # Group 2: ECG & Stress Info
     with st.expander("📈 ECG & Stress Info", expanded=True):
-        slope_2 = st.selectbox("ST Slope (slope_2 only)", ["No", "Yes"])
+        slope_2 = st.selectbox("ST Slope (slope_2)", ["No", "Yes"])
         oldpeak = st.number_input("ST Depression (oldpeak)", 0.0, 10.0, 1.0, step=0.1)
-        ca_1 = st.selectbox("Major Vessel (ca_1.0 only)", ["No", "Yes"])
-        thal_7 = st.selectbox("Thalassemia (thal_7.0 only)", ["No", "Yes"])
+        thal_7 = st.selectbox("Thalassemia (thal_7.0)", ["No", "Yes"])
         exang = st.selectbox("Exercise Induced Angina", ["No", "Yes"])
 
     st.markdown("<br>", unsafe_allow_html=True)
@@ -84,8 +75,6 @@ with col_results:
 
         model_cols = ['thal_7.0','cp_4','exang','ca_2.0','ca_3.0','slope_2','cp_3','cp_2','oldpeak','ca_1.0']
         input_df = input_df.reindex(columns=model_cols, fill_value=0)
-
-
 
         # Predict
         pred = model.predict(input_df)[0]
@@ -141,29 +130,6 @@ with tabs[1]:
         <h4 style='color:#2E86C1; margin-bottom:8px;'>📈 Performance Metrics</h4>
         <p style='color:#154360; font-weight:bold; margin:0;'>Accuracy: 77.05%</p>
         <p style='color:#154360; font-weight:bold; margin:0;'>F1 Score: 75.00%</p>
-    </div>
-
-    <!-- Confusion Matrix Section -->
-    <div style='background-color:#AED6F1; padding:15px; border-radius:12px; box-shadow:0 2px 6px rgba(0,0,0,0.1); margin-bottom:15px;'>
-        <h4 style='color:#2E86C1; margin-bottom:8px;'>🧮 Confusion Matrix</h4>
-        <table style='width:100%; border-collapse:collapse; text-align:center; font-weight:bold;'>
-            <tr style='background-color:#D6EAF8; color:#154360;'>
-                <th></th>
-                <th style='padding:8px;'>Predicted: No Disease</th>
-                <th style='padding:8px;'>Predicted: Disease</th>
-            </tr>
-            <tr style='color:#154360;'>
-                <td style='background-color:#D6EAF8; padding:8px;'>Actual: No Disease</td>
-                <td style='background-color:#ABEBC6; padding:12px; border-radius:8px;'>29</td>
-                <td style='background-color:#F5B7B1; padding:12px; border-radius:8px;'>4</td>
-            </tr>
-            <tr style='color:#154360;'>
-                <td style='background-color:#D6EAF8; padding:8px;'>Actual: Disease</td>
-                <td style='background-color:#F5B7B1; padding:12px; border-radius:8px;'>3</td>
-                <td style='background-color:#ABEBC6; padding:12px; border-radius:8px;'>25</td>
-            </tr>
-        </table>
-        <p style='font-size:0.85rem; color:#555; margin-top:10px;'>🟩 Green = Correct prediction, 🟥 Red = Misclassification</p>
     </div>
 
     <!-- Note Section -->
@@ -231,7 +197,7 @@ with tabs[3]:
         specs=[[{"type": "xy"}, {"type": "domain"}],
                [{"type": "xy"}, {"type": "xy"}]]
     )
-    for sex_val, sex_name in zip([0,1], ['Male','Female']):
+    for sex_val, sex_name in zip([1,0], ['Male','Female']):
         data = heart_df[heart_df['sex']==sex_val]['chol']
         fig.add_trace(go.Histogram(x=data, histnorm='probability density', name=f'{sex_name}', opacity=0.6), row=1, col=1)
     cp_counts = heart_df['cp'].value_counts()
