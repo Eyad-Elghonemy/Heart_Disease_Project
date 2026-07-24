@@ -4,6 +4,8 @@ classification project.
 
 This app loads the trained model directly from disk (Models/final_model.pkl)
 and runs every prediction locally — no external API calls, no API keys,
+no usage tracking.
+
 Run with:
     streamlit run UI/app.py
 """
@@ -431,3 +433,4 @@ with tabs[3]:
 
 st.markdown('<hr class="rule">', unsafe_allow_html=True)
 st.caption("Heart Disease Predictor · runs entirely on local data and a locally-loaded model · no external services involved.")
+##################
