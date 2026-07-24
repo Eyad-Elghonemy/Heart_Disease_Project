@@ -4,8 +4,6 @@ classification project.
 
 This app loads the trained model directly from disk (Models/final_model.pkl)
 and runs every prediction locally — no external API calls, no API keys,
-no usage tracking.
-
 Run with:
     streamlit run UI/app.py
 """
