@@ -8,16 +8,22 @@ from plotly.subplots import make_subplots
 st.set_page_config(page_title="Heart Disease Predictor", layout="wide", page_icon="❤️")
 
 # ------------------- Load Model -------------------
-model = joblib.load(r"C:\Users\eyad0\Documents\python\Heart_Disease_Project\models\final_model.pkl")
-heart_df = pd.read_csv(r"C:\Users\eyad0\Documents\python\Heart_Disease_Project\data\heart_disease_clean.csv")
+import os
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+MODEL_PATH = os.path.join(BASE_DIR, "Models", "final_model.pkl")
+DATA_PATH = os.path.join(BASE_DIR, "Data", "heart_disease_clean.csv")
+
+model = joblib.load(MODEL_PATH)
+heart_df = pd.read_csv(DATA_PATH)
 
 # ------------------- Sidebar -------------------
 with st.sidebar:
     st.markdown("## Model Information")
-    st.info("""
-    **Model 🔭**: LogisticRegression  
-    **F1 Score**: 87.27%  
-    **Accuracy**: 88.52%  
+    st.info(f"""
+    **Model 🔭**: {type(model.named_steps['model']).__name__}  
+    **F1 Score**: 75.00%  
+    **Accuracy**: 77.05%  
     **Features Used**: 10
     """)
     st.markdown("---")
@@ -133,8 +139,8 @@ with tabs[1]:
     <!-- Performance Section -->
     <div style='background-color:#AED6F1; padding:15px; border-radius:12px; box-shadow:0 2px 6px rgba(0,0,0,0.1); margin-bottom:15px;'>
         <h4 style='color:#2E86C1; margin-bottom:8px;'>📈 Performance Metrics</h4>
-        <p style='color:#154360; font-weight:bold; margin:0;'>Accuracy: 88.52%</p>
-        <p style='color:#154360; font-weight:bold; margin:0;'>F1 Score: 87.27%</p>
+        <p style='color:#154360; font-weight:bold; margin:0;'>Accuracy: 77.05%</p>
+        <p style='color:#154360; font-weight:bold; margin:0;'>F1 Score: 75.00%</p>
     </div>
 
     <!-- Confusion Matrix Section -->
