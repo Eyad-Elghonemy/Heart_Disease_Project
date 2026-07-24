@@ -433,4 +433,3 @@ with tabs[3]:
 
 st.markdown('<hr class="rule">', unsafe_allow_html=True)
 st.caption("Heart Disease Predictor · runs entirely on local data and a locally-loaded model · no external services involved.")
-##################
