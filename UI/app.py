@@ -43,14 +43,14 @@ with col_inputs:
 
     # Group 1: Chest Pain & Vessels
     with st.expander("💓 Chest Pain & Vessels", expanded=True):
-        cp_4 = st.selectbox("Chest Pain Type (cp_4)", ["No", "Yes"])
-        ca_1 = st.selectbox("Major Vessels Colored (ca_1.0)", ["No", "Yes"])
+        cp_4 = st.selectbox("Chest Pain Type", ["No", "Yes"])
+        ca_1 = st.selectbox("Major Vessels Colored", ["No", "Yes"])
 
     # Group 2: ECG & Stress Info
     with st.expander("📈 ECG & Stress Info", expanded=True):
-        slope_2 = st.selectbox("ST Slope (slope_2)", ["No", "Yes"])
-        oldpeak = st.number_input("ST Depression (oldpeak)", 0.0, 10.0, 1.0, step=0.1)
-        thal_7 = st.selectbox("Thalassemia (thal_7.0)", ["No", "Yes"])
+        slope_2 = st.selectbox("ST Slope", ["No", "Yes"])
+        oldpeak = st.number_input("ST Depression", 0.0, 10.0, 1.0, step=0.1)
+        thal_7 = st.selectbox("Thalassemia", ["No", "Yes"])
         exang = st.selectbox("Exercise Induced Angina", ["No", "Yes"])
 
     st.markdown("<br>", unsafe_allow_html=True)
