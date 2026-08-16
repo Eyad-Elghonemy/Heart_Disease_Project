@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <!-- Background Gradient (Dark Mode matching your dashboard) -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+
+    <!-- مسار قص القلب لتطبيق الظل والإضاءة بشكل دقيق -->
+    <clipPath id="heart-clip">
+      <path d="M 512,830 C 512,830 200,600 200,370 C 200,230 330,150 512,300 C 694,150 824,230 824,370 C 824,600 512,830 512,830 Z" />
+    </clipPath>
+  </defs>
+
+  <!-- Square Canvas with rounded corners (App Icon Style) -->
+  <rect width="1024" height="1024" fill="url(#bg-grad)" rx="225" />
+
+  <!-- مجموعة القلب بالكامل متسنترة جوه الكانفاس -->
+  <g transform="translate(0, 20)">
+
+    <!-- جسم القلب وتفاصيل الظل والنور -->
+    <g clip-path="url(#heart-clip)">
+      <!-- اللون الوردي الأساسي -->
+      <rect x="0" y="0" width="1024" height="1024" fill="#E3265C" />
+      
+      <!-- الظل الداكن على الجانب الأيمن -->
+      <polygon points="350,1024 1024,1024 1024,0 650,0" fill="#9E1238" />
+      
+      <!-- الإضاءة اللامعة على الجزء الأيسر العلوي -->
+      <path d="M 280,370 A 120,120 0 0,1 420,240 A 140,140 0 0,0 280,370 Z" fill="#FFFFFF" opacity="0.6" />
+      <ellipse cx="370" cy="210" rx="16" ry="8" transform="rotate(-30 370 210)" fill="#FFFFFF" opacity="0.6" />
+    </g>
+
+    <!-- شبكة الخطوط الدائرية والإطار الخارجي للقلب -->
+    <g fill="none" stroke="#4A0B2C" stroke-width="20" stroke-linecap="round" stroke-linejoin="round">
+      
+      <!-- إطار القلب -->
+      <path d="M 512,830 C 512,830 200,600 200,370 C 200,230 330,150 512,300 C 694,150 824,230 824,370 C 824,600 512,830 512,830 Z" />
+      
+      <!-- الخطوط العلوية -->
+      <path d="M 400 180 L 400 350" />
+      <path d="M 512 120 L 512 300" />
+      <path d="M 624 180 L 624 350" />
+
+      <!-- الخطوط اليسرى -->
+      <path d="M 140 370 L 290 370 L 380 470 L 442 470" />
+      <path d="M 110 512 L 250 512 L 442 512" />
+      <path d="M 170 680 L 310 680 L 420 560 L 442 560" />
+      
+      <!-- الخطوط اليمنى -->
+      <path d="M 884 370 L 734 370 L 644 470 L 582 470" />
+      <path d="M 914 512 L 774 512 L 582 512" />
+      <path d="M 854 680 L 714 680 L 604 560 L 582 560" />
+
+      <!-- مسارات الدوائر الداخلية المتفرعة من الشريحة -->
+      <path d="M 470 442 L 470 390 L 400 320" />
+      <path d="M 554 442 L 554 390 L 624 320" />
+      <path d="M 480 592 L 480 660" />
+      <path d="M 544 592 L 544 660 L 600 716" />
+    </g>
+
+    <!-- النقاط البيضاء الداخلية -->
+    <g fill="#FFFFFF">
+      <circle cx="400" cy="350" r="15" />
+      <circle cx="512" cy="300" r="15" />
+      <circle cx="624" cy="350" r="15" />
+      <circle cx="400" cy="320" r="15" />
+      <circle cx="624" cy="320" r="15" />
+      <circle cx="480" cy="660" r="15" />
+      <circle cx="600" cy="716" r="15" />
+    </g>
+
+    <!-- العُقد الخارجية (قاعدة زرقاء، مركز ذهبي، وإطار داكن) -->
+    <g stroke="#4A0B2C" stroke-width="12">
+      <g transform="translate(400, 180)">
+        <circle cx="0" cy="0" r="30" fill="#1FB6C5" />
+        <circle cx="0" cy="0" r="13" fill="#F7BA35" stroke="none" />
+      </g>
+      <g transform="translate(512, 120)">
+        <circle cx="0" cy="0" r="30" fill="#1FB6C5" />
+        <circle cx="0" cy="0" r="13" fill="#F7BA35" stroke="none" />
+      </g>
+      <g transform="translate(624, 180)">
+        <circle cx="0" cy="0" r="30" fill="#1FB6C5" />
+        <circle cx="0" cy="0" r="13" fill="#F7BA35" stroke="none" />
+      </g>
+      
+      <g transform="translate(140, 370)">
+        <circle cx="0" cy="0" r="30" fill="#1FB6C5" />
+        <circle cx="0" cy="0" r="13" fill="#F7BA35" stroke="none" />
+      </g>
+      <g transform="translate(110, 512)">
+        <circle cx="0" cy="0" r="30" fill="#1FB6C5" />
+        <circle cx="0" cy="0" r="13" fill="#F7BA35" stroke="none" />
+      </g>
+      <g transform="translate(170, 680)">
+        <circle cx="0" cy="0" r="30" fill="#1FB6C5" />
+        <circle cx="0" cy="0" r="13" fill="#F7BA35" stroke="none" />
+      </g>
+      
+      <g transform="translate(884, 370)">
+        <circle cx="0" cy="0" r="30" fill="#1FB6C5" />
+        <circle cx="0" cy="0" r="13" fill="#F7BA35" stroke="none" />
+      </g>
+      <g transform="translate(914, 512)">
+        <circle cx="0" cy="0" r="30" fill="#1FB6C5" />
+        <circle cx="0" cy="0" r="13" fill="#F7BA35" stroke="none" />
+      </g>
+      <g transform="translate(854, 680)">
+        <circle cx="0" cy="0" r="30" fill="#1FB6C5" />
+        <circle cx="0" cy="0" r="13" fill="#F7BA35" stroke="none" />
+      </g>
+    </g>
+
+    <!-- الشريحة المركزية (Microchip) -->
+    <g>
+      <rect x="432" y="432" width="160" height="160" rx="32" fill="#1FB6C5" stroke="#4A0B2C" stroke-width="20" />
+      <rect x="456" y="456" width="112" height="112" rx="20" fill="#149198" />
+      <rect x="468" y="468" width="28" height="14" rx="7" fill="#E0F7FA" opacity="0.9" />
+    </g>
+
+  </g>
+</svg>
