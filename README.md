@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="logo2.png" alt="Heart Disease Project Logo" width="120" />
+<img src="logo.jpg" alt="Heart Disease Project Logo" width="120" />
 
 # ❤️ Heart Disease Risk Prediction
 **A complete end-to-end machine learning pipeline for analyzing and predicting heart disease risk, deployed as an interactive Streamlit dashboard.**
